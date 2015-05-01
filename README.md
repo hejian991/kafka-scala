@@ -4,8 +4,7 @@ Some nicer abstractions for Kafka and also future proofing once the API moves in
 
 # Producer
 
-
-```
+```scala
 
 import io.forward.kafka._
 
