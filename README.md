@@ -1,6 +1,10 @@
 # Scala Kafka
 
-Some nicer abstractions for Kafka and also future proofing once the API moves into Java from Scala
+## Why?
+
+I wanted some nicer abstractions for working with Apache Kafka 
+
+This will also future proof once the API moves into Java from Scala
 
 # Producer
 
