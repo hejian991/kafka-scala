@@ -7,7 +7,8 @@ import kafka.javaapi.producer.Producer
 import kafka.producer.{KeyedMessage, ProducerConfig}
 
 object DefaultProducerProps {
-  val default: Properties = {
+  
+  val props: Properties = {
     PropertyBuilder.buildFromMap(
       Map("zk.connect"           -> "127.0.0.1:2181",
           "metadata.broker.list" -> "localhost:9092",
@@ -15,7 +16,7 @@ object DefaultProducerProps {
   }
 }
 
-class KafkaProducer[K,V](topic: String, properties: Properties = DefaultProducerProps.default) {
+class KafkaProducer[K,V](topic: String, properties: Properties = DefaultProducerProps.props) {
 
   private [this] val config =
     new ProducerConfig(properties)
