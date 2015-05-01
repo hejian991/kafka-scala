@@ -1,5 +1,7 @@
 # Scala Kafka
 
+![](http://hortonworks.com/wp-content/uploads/2014/08/kafka-logo-wide.png)
+
 ## Why?
 
 I wanted some nicer abstractions for working with Apache Kafka 
