@@ -39,4 +39,16 @@ producer.sendWithKey("foo", "bar")
 
 # Consumer
 
-TODO
+```scala
+
+val consumer = new KafkaConsumer[String]("test-topic")
+
+// Get a message
+
+// scala> consumer.nextMessage()
+// res1: Option[String] = Some("Hello world")
+
+// scala> consumer.nextMessage()
+// res2: Option[String] = None
+
+```
