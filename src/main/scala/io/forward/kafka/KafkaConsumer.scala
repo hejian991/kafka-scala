@@ -17,16 +17,15 @@ final class KafkaConsumer[T](
     Consumer.create(config)
 
   // The topic you want to read from !
-  val filterSpec: Whitelist =
-    new Whitelist(topic)
+  val filterSpec: Whitelist = new Whitelist(topic)
 
-  val stream: KafkaStream[T, T] =
+  val stream: Option[KafkaStream[T, T]] =
     consumer.createMessageStreamsByFilter(
-      filterSpec, 1, decoder, decoder).head
+      filterSpec, 1, decoder, decoder).headOption
 
-  def nextMessage(): Option[T] = Try {
-    stream.iterator().next().message()
-  }.toOption
+  def nextMessage(): Option[T] = stream flatMap (s =>
+    Try { s.iterator().next().message() }.toOption
+  )
 }
 
 object SimpleStringConsumer {
