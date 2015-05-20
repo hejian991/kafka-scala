@@ -1,0 +1,15 @@
+[0m[[0minfo[0m] [0m[32mKafkaConsumerSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mThe Kafka Consumer[0m[0m
+[0m[[0minfo[0m] [0m[31m- should create a new instance *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  org.I0Itec.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 6000[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.I0Itec.zkclient.ZkClient.connect(ZkClient.java:880)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:98)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:84)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at kafka.consumer.ZookeeperConsumerConnector.connectZk(ZookeeperConsumerConnector.scala:171)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:126)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:143)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at kafka.consumer.Consumer$.create(ConsumerConnector.scala:94)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at io.forward.kafka.KafkaConsumer.<init>(KafkaConsumer.scala:17)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at io.forward.kafka.SimpleStringConsumer$.apply(KafkaConsumer.scala:34)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at io.forward.kafka.KafkaConsumerSpec$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(KafkaConsumerSpec.scala:13)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m

@@ -2,27 +2,13 @@ package io.forward.kafka
 
 import java.util.Properties
 
-import io.forward.kafka.prop.PropertyBuilder
 import kafka.javaapi.producer.Producer
 import kafka.producer.{KeyedMessage, ProducerConfig}
 
-object DefaultProducerProps {
-  
-  val props: Properties = {
-    PropertyBuilder.buildFromMap(
-      Map("zk.connect"           -> "127.0.0.1:2181",
-          "metadata.broker.list" -> "localhost:9092",
-          "serializer.class"     -> "kafka.serializer.StringEncoder"))
-  }
-}
+final class KafkaProducer[K,V](topic: String, properties: Properties = defaultProducerProperties) {
+  private val config = new ProducerConfig(properties)
 
-class KafkaProducer[K,V](topic: String, properties: Properties = DefaultProducerProps.props) {
-
-  private [this] val config =
-    new ProducerConfig(properties)
-
-  private [this] val producer: Producer[K, V] =
-    new Producer[K,V](config)
+  private val producer: Producer[K, V] = new Producer[K,V](config)
 
   /**
    * Send a message with a partition key set
@@ -32,8 +18,7 @@ class KafkaProducer[K,V](topic: String, properties: Properties = DefaultProducer
    */
   def sendWithKey(key: K, value: V): Unit =
     producer.send(
-      new KeyedMessage[K,V](topic, key, value)
-    )
+      new KeyedMessage[K,V](topic, key, value))
 
   /**
    * Send a message
