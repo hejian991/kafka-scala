@@ -12,7 +12,7 @@ class KafkaConsumerSpec extends FunSpec with Matchers {
 
       val producer = SimpleStringConsumer(TopicUnderTest)
 
-      producer shouldBe a[KafkaConsumer]
+      producer shouldBe a[KafkaConsumer[_]]
     }
   }
 }
